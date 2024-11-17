@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My E-Commerce Site</title>
+    <link rel="stylesheet" href="/styles.css"></head>
+<body>
+    <header>
+        <h1>Welcome to My E-Commerce Store</h1>
+    </header>
+
+    <main>
+        <h2>Featured Products</h2>
+        <div id="products">
+            <!-- Products will be dynamically loaded here -->
+        </div>
+    </main>
+
+    <script src="/scripts.js"></script>
+    <script>
+        // Update cart count when the page loads
+        fetch('/cart-count')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('cart-count').innerText = data.cartCount;
+            });
+    </script>
+
+    <!-- Video background section with a box -->
+    <div class="video-container">
+        <video autoplay loop muted>
+            <source src="/videos/video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- Welcome Message overlay -->
+    <div class="welcome">
+        <h1>Welcome to Our Website!</h1>
+        <p>Explore our collection of amazing products!</p>
+        <p>Best Quality Products</p>
+    </div>
+
+    <!-- Product Section -->
+    <div class="product-section">
+        <h2>Our Featured Products</h2>
+
+        <!-- Example Product -->
+        <div class="product">
+            <img src="/pictures/img1.jpg" alt="Product 1">
+            <h3>Product 1</h3>
+            <p>Description of product 1</p>
+            <div class="price">
+                <span class="original-price">₹800</span>
+                <span class="discounted-price">₹450</span>
+            </div>
+            <div class="quantity">
+                <p>Per Week: 3kg</p>
+                <p>Per Month: 12kg</p>
+                <p>Per Year: 144kg</p>
+            </div>
+            <div class="subscription">
+                Subscription: ₹150/month
+            </div>
+        </div>
+
+        <!-- More Products ... -->
+
+    </div>
+
+    <!-- Contact Section -->
+    <div class="contact-section">
+        <h2>Contact Us</h2>
+        <div class="address">
+            <h3>Our Address</h3>
+            <p>123 E-Commerce Street, Shop No. 45, Business City, State, ZIP Code</p>
+        </div>
+        <div class="map">
+            <h3>Find Us on the Map</h3>
+            <iframe src="https://www.google.com/maps/embed?pb=..." width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <div class="contact-details">
+            <h3>Contact Information</h3>
+            <p><strong>Email:</strong> <a href="mailto:info@ecommerce.com">info@ecommerce.com</a></p>
+            <p><strong>Phone:</strong> <a href="tel:+1234567890">+123 456 7890</a></p>
+        </div>
+    </div>
+</body>
+</html>
