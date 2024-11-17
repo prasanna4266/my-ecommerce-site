@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Checkout</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/products">Products</a>
+            <a href="/cart">Cart</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <div class="container">
+            <h2>Review Your Subscription</h2>
+
+            <!-- Show Subscription Details -->
+            <div class="subscription-details">
+                <h3>Your Subscription Details</h3>
+                <p>No Subscription added</p>
+                
+            </div>
+
+        <div class="container">
+            <h2>Review Your Order</h2>
+
+            <!-- Pass cart data as JSON to a hidden div's data attribute -->
+            <div id="checkout-items" data-cart='<%= JSON.stringify(cart) %>'>
+                <% if (cart.length === 0) { %>
+                    <p>Your cart is empty!</p>
+                <% } else { %>
+                    <% cart.forEach(item => { %>
+                        <div class="checkout-item">
+                            <h4><%= item.name %></h4>
+                            <p>₹<%= item.price %> x <%= item.quantity %></p>
+                            <p>Total: ₹<%= item.price * item.quantity %></p>
+                            <button class="remove-item-btn" onclick="removeFromCart('<%= item.name %>')">Remove</button>
+                        </div>
+                    <% }) %>
+                <% } %>
+            </div>
+
+            <div id="checkout-summary">
+                <h3>Total: ₹<%= cart.reduce((sum, item) => sum + item.price * item.quantity, 0) %></h3>
+                <h3>Scan QR Code to Complete Payment</h3>
+                <div style="margin: 20px 0;">
+                    <img src="/pictures/qr.jpg" alt="QR Code Scanner" class="qr-code">
+                </div>
+                <div class="checkout-buttons">
+                    <button id="buy-btn" class="btn">Pay</button>
+                    <button id="continue-shopping-btn" class="btn">Continue Shopping</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const cartItems = JSON.parse(document.getElementById('checkout-items').getAttribute('data-cart'));
+
+            document.getElementById('buy-btn').addEventListener('click', () => {
+                if (cartItems.length === 0) {
+                    alert("Your cart is empty. Please add items before proceeding.");
+                } else {
+                    alert("Proceeding to payment...");
+                    window.location.href = '/payment';
+                }
+            });
+
+            document.getElementById('continue-shopping-btn').addEventListener('click', () => {
+                window.location.href = '/products';
+            });
+        });
+
+        function removeFromCart(itemName) {
+            fetch('/cart/remove', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ name: itemName })
+            }).then(() => location.reload());
+        }
+    </script>
+</body>
+</html>

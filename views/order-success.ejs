@@ -1,0 +1,33 @@
+<!-- order-success.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Success</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+    }
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h2>Thank You for Your Order!</h2>
+    <p>Your payment was successfully processed, and your order has been placed.</p>
+    <p><strong>Your Order ID: <%= orderId %></strong></p>
+    <p>Shipping Address: <%= address %></p>
+    <p>You will receive an order confirmation email shortly.</p>
+    <a href="/home">Go to Homepage</a>
+    </div>
+</body>
+</html>

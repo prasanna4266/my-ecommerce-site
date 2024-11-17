@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= typeof title !== 'undefined' ? title : "My E-Commerce Site" %></title> <!-- Default title -->
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <!-- Centered Alert Message -->
+    <div id="alert-message" class="alert" style="display: none;">
+        Item added to cart!
+    </div>
+    
+    <!-- Common Header Section -->
+    <header>
+        <h1>My E-Commerce Store</h1>
+        <nav class="navbar">
+            <a href="/">Home</a>
+            <a href="/products">Products</a>
+    
+            <!-- Conditional Links for Profile/Login -->
+            <% if (session.userId) { %> 
+                <a href="/cart">Cart</a>
+                <a href="/profile">Profile</a>
+                <a href="/logout">Logout</a>
+            <% } else { %> 
+                <a href="/login">Login</a>
+            <% } %>
+
+            </div>
+        </nav>
+    </header>
+    
+
+    <!-- Dynamic Page Content -->
+    <main>
+        <%- body %>
+    </main>
+
+    <!-- Common Footer Section -->
+    <footer>
+        <p>&copy; 2024 My E-Commerce Store</p>
+    </footer>
+
+    <script>
+        // Update cart count based on localStorage or session
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            document.getElementById('cart-count').textContent = cart.length;
+        }
+
+        // Call updateCartCount when the page is loaded
+        document.addEventListener('DOMContentLoaded', updateCartCount);
+
+        // You might want to handle the cart in the session or through other logic
+    </script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!-- cart.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Cart</title>
+    <style>
+        
+        .cart-actions {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .cart-actions button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .continue-shopping {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .buy-now {
+            background-color: #28a745;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Your Cart</h1>
+
+    <div id="cart-items-container">
+        <% if (cart && cart.length > 0) { %>
+            <ul id="cart-items">
+                <% cart.forEach(item => { %>
+                    <li>
+                        <p><%= item.name %> x <%= item.quantity %> - ₹<%= item.price * item.quantity %></p>
+                        <button onclick="removeFromCart('<%= item.name %>')">Remove</button> <!-- Remove button -->
+                    </li>
+                <% }) %>
+            </ul>
+            <p>Total: ₹<%= cart.reduce((total, item) => total + (item.price * item.quantity), 0) %></p>
+        <% } else { %>
+            <p>Your cart is empty.</p>
+        <% } %>
+    </div>
+
+    <% if (cart && cart.length > 0) { %>
+        <div class="cart-actions">
+            <!-- Continue Shopping Button -->
+            <button class="continue-shopping" onclick="window.location.href='/products'">Continue Shopping</button>
+
+            <!-- Buy Now Button -->
+            <button class="buy-now" onclick="window.location.href='/checkout'">Buy Now</button>
+        </div>
+    <% } %>
+</body>
+<script>
+    function updateCartUI(cart) {
+        const cartItemsContainer = document.getElementById('cart-items-container');
+    
+        // Clear the cart items before updating
+        cartItemsContainer.innerHTML = '';
+    
+        if (cart && cart.length > 0) {
+            // Create and append new cart item list
+            const ul = document.createElement('ul');
+            ul.id = 'cart-items';
+    
+            cart.forEach(item => {
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <p>${item.name} x ${item.quantity} - ₹${item.price * item.quantity}</p>
+                    <button onclick="removeFromCart('${item.name}')">Remove</button>
+                `;
+                ul.appendChild(li);
+            });
+    
+            cartItemsContainer.appendChild(ul);
+    
+            // Update the total price
+            const totalPrice = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+            const totalPara = document.createElement('p');
+            totalPara.innerHTML = `Total: ₹${totalPrice}`;
+            cartItemsContainer.appendChild(totalPara);
+        } else {
+            const emptyMessage = document.createElement('p');
+            emptyMessage.innerHTML = 'Your cart is empty.';
+            cartItemsContainer.appendChild(emptyMessage);
+        }
+    }
+    // Function to handle item removal
+        function removeFromCart(itemName) {
+            console.log("Removing item:", itemName); // Debugging line
+            fetch('/remove-from-cart', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ name: itemName })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Item removed');
+                    window.location.reload(); // Reload the page to update the cart
+                } else {
+                    alert('Failed to remove item');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Failed to remove item');
+            });
+        }
+</script>
+</html>

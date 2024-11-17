@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Orders</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="orders-page">
+        <h1>Your Orders</h1>
+        
+        <% if (orders.length > 0) { %>
+            <% orders.forEach(function(order) { %>
+                <div class="order-card">
+                    <h2>Order ID: <%= order.orderId %></h2>
+                    <p><strong>Date:</strong> <%= order.date %></p>
+                    <p><strong>Total:</strong> ₹<%= order.total.toFixed(2) %></p>
+                    <p><strong>Status:</strong> <%= order.status %></p>
+                    
+                    <h3>Items:</h3>
+                    <ul>
+                        <% order.items.forEach(function(item) { %>
+                            <li>
+                                <strong><%= item.name %></strong> - 
+                                Qty: <%= item.quantity %>, 
+                                Price: ₹<%= item.price.toFixed(2) %>
+                            </li>
+                        <% }); %>
+                    </ul>
+                </div>
+            <% }); %>
+        <% } else { %>
+            <p>You have not placed any orders yet.</p>
+        <% } %>
+    </div>
+</body>
+</html>

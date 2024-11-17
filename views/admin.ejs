@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Payment Verification</title>
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+    <div id="orders">
+    <!-- Orders will be dynamically loaded -->
+    </div>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        th {
+            background-color: #f4f4f4;
+        }
+        
+        button {
+            padding: 5px 10px;
+            border: none;
+            color: #fff;
+            background-color: #007bff;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 2px;
+        }
+        
+        button:hover {
+            background-color: #0056b3;
+        }
+        
+    </style>
+
+    <script>
+    // Fetch pending payments from the server
+    fetch('/get-pending-payments')
+        .then(response => response.json())
+        .then(data => {
+        const ordersDiv = document.getElementById('orders');
+        data.orders.forEach(order => {
+            const orderDiv = document.createElement('div');
+            orderDiv.innerHTML = `
+            <p>Order ID: ${order.orderId}</p>
+            <p>Product Details: ${JSON.stringify(order.productDetails)}</p>
+            <button onclick="verifyPayment('${order.orderId}', 'verified')">Mark as Verified</button>
+            <button onclick="verifyPayment('${order.orderId}', 'failed')">Mark as Failed</button>
+            `;
+            ordersDiv.appendChild(orderDiv);
+        });
+        });
+
+    // Function to verify payment
+    function verifyPayment(orderId, decision) {
+        fetch('/manual-verify-payment', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ orderId, adminDecision: decision })
+        })
+        .then(response => response.json())
+        .then(data => {
+          alert(data.message); // Notify admin about the result
+          location.reload(); // Reload the page to reflect updated status
+        });
+    }
+    </script>
+</body>
+</html>

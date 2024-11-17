@@ -1,0 +1,56 @@
+<!-- payment.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+    }
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .button {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    .button:hover {
+        background-color: #45a049;
+    }
+    </style>
+<body>
+    <h1>Payment Page</h1>
+    <p>Review Your Order</p>
+
+    <% if (cart && cart.length > 0) { %>
+        <ul>
+            <% cart.forEach(item => { %>
+                <li><%= item.name %> x <%= item.quantity %> - ₹<%= item.price * item.quantity %></li>
+            <% }) %>
+        </ul>
+        <h3>Total: ₹<%= cart.reduce((sum, item) => sum + item.price * item.quantity, 0) %></h3>
+    <% } else { %>
+        <p>Your cart is empty.</p>
+    <% } %>
+
+    <form action="/confirm-payment" method="POST">
+        <button type="submit">Confirm Payment</button>
+    </form>
+</body>
+</html>

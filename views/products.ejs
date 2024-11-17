@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Products</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+    <main>
+        <h2>Featured Products</h2>
+        <div id="products">
+            <div id="cart-display"></div><div id="cart-count">0</div> <!-- Example element for displaying the cart count -->
+        <!-- Products will be dynamically loaded here -->
+        </div>
+
+    <!-- Product Section below the video -->
+    <div class="product-section">
+        <h2>Our Products</h2>
+
+        <!-- Product 1 -->
+        <div class="product">
+            <img src="/pictures/img1.jpg" alt="Product 1">
+            <h3>Product 1</h3>
+            <p>Description of product 1</p>
+            <div class="price">
+                <span class="original-price">₹800</span>
+                <span class="discounted-price">₹450</span>
+            </div>
+            <div class="quantity">
+                <p>Per Week: 3kg</p>
+                <p>Per Month: 12kg</p>
+                <p>Per Year: 144kg</p>
+            </div>
+            <div class="subscription">
+                Subscription: ₹150/month
+                <button class="subscription"data-id="1" data-name="Product 1" data-price="150">Subscribe</button>
+            </div>
+            <button class="add-to-cart" data-id="1" data-name="Product 1" data-price="450">Add to Cart</button>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product">
+            <img src="/pictures/img2.jpg" alt="Product 2">
+            <h3>Product 2</h3>
+            <p>Description of product 2</p>
+            <div class="price">
+                <span class="original-price">₹1200</span>
+                <span class="discounted-price">₹900</span>
+            </div>
+            <div class="quantity">
+                <p>Per Week: 5kg</p>
+                <p>Per Month: 20kg</p>
+                <p>Per Year: 240kg</p>
+            </div>
+            <div class="subscription">
+                Subscription: ₹250/month
+                <button class="subscription"data-id="2" data-name="Product 2" data-price="250">Subscribe</button>
+            </div>
+            <button class="add-to-cart" data-id="2" data-name="Product 2" data-price="900">Add to Cart</button>
+        </div>
+
+
+        <!-- Product 3 -->
+        <div class="product">
+            <img src="/pictures/img10.jpg" alt="Product 3">
+            <h3>Product 3</h3>
+            <p>Description of product 3</p>
+            <div class="price">
+                <span class="original-price">₹1500</span>
+                <span class="discounted-price">₹1000</span>
+            </div>
+            <div class="quantity">
+                <p>Per Week: 7kg</p>
+                <p>Per Month: 28kg</p>
+                <p>Per Year: 336kg</p>
+            </div>
+            <div class="subscription">
+                Subscription: ₹350/month
+                <button class="subscription"data-id="3" data-name="Product 3" data-price="350">Subscribe</button>
+            </div>
+            <button class="add-to-cart" data-id="3" data-name="Product 3" data-price="1000">Add to Cart</button>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product">
+            <img src="/pictures/img3.jpg" alt="Product 4">
+            <h3>Product 4</h3>
+            <p>Description of product 4</p>
+            <div class="price">
+                <span class="original-price">₹2500</span>
+                <span class="discounted-price">₹1800</span>
+            </div>
+            <div class="quantity">
+                <p>Per Week: 4kg</p>
+                <p>Per Month: 26kg</p>
+                <p>Per Year: 300kg</p>
+            </div>
+            <div class="subscription">
+                Subscription: ₹250/month
+                <button class="subscription"data-id="4" data-name="Product 4" data-price="250">Subscribe</button>
+            </div>
+            <button class="add-to-cart" data-id="4" data-name="Product 4" data-price="1800">Add to Cart</button>
+        </div>
+        
+        <!-- Product 5 -->
+        <div class="product">
+            <img src="/pictures/img4.jpg" alt="Product 5">
+            <h3>Product 5</h3>
+            <p>Description of product 5</p>
+            <div class="price">
+                <span class="original-price">₹4500</span>
+                <span class="discounted-price">₹3000</span>
+            </div>
+            <div class="quantity">
+                <p>Per Week: 6kg</p>
+                <p>Per Month: 25kg</p>
+                <p>Per Year: 323kg</p>
+            </div>
+            <div class="subscription">
+                Subscription: ₹500/month
+                <button class="subscription"data-id="5" data-name="Product 5" data-price="500">Subscribe</button>
+            </div>
+            <button class="add-to-cart" data-id="5" data-name="Product 5" data-price="3000">Add to Cart</button>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="product">
+            <img src="/pictures/img5.jpg" alt="Product 6">
+            <h3>Product 6</h3>
+            <p>Description of product 6</p>
+            <div class="price">
+                <span class="original-price">₹30000</span>
+                <span class="discounted-price">₹1600</span>
+            </div>
+            <div class="quantity">
+                <p>Per Week: 7kg</p>
+                <p>Per Month: 28kg</p>
+                <p>Per Year: 336kg</p>
+            </div>
+            <div class="subscription">
+                Subscription: ₹550/month
+                <button class="subscription"data-id="6" data-name="Product 6" data-price="550">Subscribe</button>
+            </div>
+            <button class="add-to-cart" data-id="6" data-name="Product 6" data-price="1600">Add to Cart</button>
+        </div>
+
+        <!-- Product 7 -->
+        <div class="product">
+            <img src="/pictures/img7.jpg" alt="Product 3">
+            <h3>Product 7</h3>
+            <p>Description of product 7</p>
+            <div class="price">
+                <span class="original-price">₹60000</span>
+                <span class="discounted-price">₹4500</span>
+            </div>
+            <div class="quantity">
+                <p>Per Week: 15kg</p>
+                <p>Per Month: 60kg</p>
+                <p>Per Year: 720kg</p>
+            </div>
+            <div class="subscription">
+                Subscription: ₹750/month
+                <button class="subscription"data-id="7" data-name="Product 7" data-price="750">Subscribe</button>
+            </div>
+            <button class="add-to-cart" data-id="7" data-name="Product 7" data-price="4500">Add to Cart</button>
+        </div>
+
+        <!-- Product 8 -->
+        <div class="product">
+            <img src="/pictures/img6.jpg" alt="Product 8">
+            <h3>Product 8</h3>
+            <p>Description of product 8</p>
+            <div class="price">
+                <span class="original-price">₹5500</span>
+                <span class="discounted-price">₹3500</span>
+            </div>
+            <div class="quantity">
+                <p>Per Week: 9kg</p>
+                <p>Per Month: 36kg</p>
+                <p>Per Year: 449kg</p>
+            </div>
+            <div class="subscription">
+                Subscription: ₹650/month
+                <button class="subscription"data-id="8" data-name="Product 8" data-price="650">Subscribe</button>
+            </div>
+            <button class="add-to-cart" data-id="8" data-name="Product 8" data-price="3500">Add to Cart</button>
+        </div>
+
+        
+        <!-- Product 9 -->
+        <div class="product">
+        <img src="/pictures/img8.jpg" alt="Product 9">
+        <h3>Product 9</h3>
+        <p>Description of product 3</p>
+        <div class="price">
+            <span class="original-price">₹4500</span>
+            <span class="discounted-price">₹3000</span>
+        </div>
+        <div class="quantity">
+            <p>Per Week: 12kg</p>
+            <p>Per Month: 46kg</p>
+            <p>Per Year: 456kg</p>
+        </div>
+        <div class="subscription">
+            Subscription: ₹450/month
+            <button class="subscription"data-id="9" data-name="Product 9" data-price="450">Subscribe</button>
+        </div>
+        <button class="add-to-cart" data-id="9" data-name="Product 9" data-price="3000">Add to Cart</button>
+    </div>
+
+        <!-- Product 10 -->
+        <div class="product">
+            <img src="/pictures/img9.jpg" alt="Product 10">
+            <h3>Product 10</h3>
+            <p>Description of product 10</p>
+            <div class="price">
+                <span class="original-price">₹4000</span>
+                <span class="discounted-price">₹2500</span>
+            </div>
+            <div class="quantity">
+                <p>Per Week: 10kg</p>
+                <p>Per Month: 40kg</p>
+                <p>Per Year: 450kg</p>
+            </div>
+            <div class="subscription">
+                Subscription: ₹250/month
+                <button class="subscription"data-id="10" data-name="Product 10" data-price="250">Subscribe</button>
+            </div>
+            <button class="add-to-cart" data-id="10" data-name="Product 10" data-price="2500">Add to Cart</button>
+        </div>
+        
+
+</main>
+
+<!-- Add this script at the end of products.ejs or in a separate file -->
+<script>
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', () => {
+            const productId = button.getAttribute('data-id');
+            const productName = button.getAttribute('data-name');
+            const productPrice = button.getAttribute('data-price');
+            addToCart(productId, productName, productPrice);
+        });
+    });
+    function addToCart(productId, productName, productPrice) {
+        fetch('/add-to-cart', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                id: productId,
+                name: productName,
+                price: productPrice
+            })
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.success) {
+                alert('Item added to cart successfully!');
+                console.log("Updated Cart:", data.cart);
+                updateCart(data.cart);
+                showNotification(`${productName} added to cart`); // Show confirmation message
+            } else {
+                alert("Error adding item to cart.");
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            //alert("Failed to add item to cart.");
+        });
+    }
+    // Function to show a notification
+    function showNotification(message) {
+    // Create the notification element
+    const notification = document.createElement('div');
+    notification.classList.add('cart-notification');
+    notification.textContent = message;
+
+    // Append notification to the body
+    document.body.appendChild(notification);
+
+    // Remove the notification after 2 seconds
+    setTimeout(() => {
+        notification.remove();
+    }, 2000);
+}
+function updateCartDisplay(cart) {
+    const cartItemsContainer = document.getElementById('cart-items');
+    const totalElement = document.getElementById('cart-total');
+
+    // Update cart items display
+    cartItemsContainer.innerHTML = cart.length > 0 
+        ? cart.map(item => `
+            <div>
+                <p>${item.name} x ${item.quantity}</p>
+                <p>₹${item.price * item.quantity}</p>
+                <button onclick="removeFromCart('${item.id}')">Remove</button>
+            </div>
+        `).join('')
+        : "<p>Your cart is empty.</p>";
+
+    // Update total
+    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    totalElement.innerText = `Total: ₹${total}`;
+}
+
+    if (cartContainer) {
+        cartContainer.innerHTML = cartContent;
+    } else {
+        console.error('Cart container element not found');
+    }
+
+/// Function to handle item removal
+function removeFromCart(itemName) {
+    console.log("Attempting to remove item:", itemName); // Debugging line to ensure correct item is being passed
+    fetch('/remove-from-cart', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ name: itemName })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Response from server:', data); // Debugging the response to check cart state
+        if (data.success) {
+            alert('Item removed');
+            window.location.reload(); // Reload the page to update the cart
+        } else {
+            alert('Failed to remove item');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Failed to remove item');
+    });
+}
+
+</script>
+</body>
+</html>
