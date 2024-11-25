@@ -4,7 +4,7 @@ const expressLayouts = require('express-ejs-layouts');
 const mongoose = require("mongoose");
 const session = require('express-session');
 const bodyParser = require('body-parser');
-const User = require("./models/User"); // Import the User model
+const User = require("./src/models/User"); // Import the User model
 const app = express();
 const flash = require('express-flash');
 app.use(flash());
