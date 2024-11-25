@@ -9,7 +9,7 @@ const app = express();
 const flash = require('express-flash');
 app.use(flash());
 app.use(expressLayouts);
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const router = express.Router();
 const jwt = require('jsonwebtoken');
 require('dotenv').config();  // Load environment variables from .env
