@@ -55,6 +55,25 @@ ul li {
   border-radius: 20px;  /* Curved edges for the container */
   background-color: black;  /* Ensure background is black */
 }
+/* Video styling */
+.video-container video {
+  width: 100%;
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Text overlay */
+.video-container .video-text {
+  position: absolute;
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust centering */
+  color: white;
+  font-size: 2vw; /* Dynamic scaling based on viewport width */
+  font-weight: bold;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Add shadow for readability */
+  text-align: center;
+  pointer-events: none; /* Prevent interference with video clicks */
+}
 
 /* Style the video element */
 video {
@@ -71,6 +90,9 @@ video {
     padding-top: 75%; /* Adjust aspect ratio for smaller screens if needed */
   }
 }
+  .video-container .video-text {
+    font-size: 4vw; /* Adjust size for mobile screens */
+  }
 
 /* Welcome text overlay */
 .welcome {
