@@ -189,7 +189,7 @@ video {
 }
 
 @media screen and (max-width: 768px) {
-  header {
+  header h1 {
     flex-direction: column;
     text-align: center;
   }
@@ -243,9 +243,9 @@ header {
 
 header h1 {
   text-align: center;
-  font-size: 2rem;
+  font-size: 1rem;
   color: #fff; /* White text for the header */
-  font-weight: 700;
+  font-weight: 400;
   margin-top: 0;
 }
 
