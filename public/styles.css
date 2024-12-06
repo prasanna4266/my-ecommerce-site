@@ -85,14 +85,6 @@ video {
   margin: 0 auto;  /* Center the video */
   border: 5px solid rgb(14, 14, 14);
 }
-@media screen and (max-width: 768px) {
-  .video-container {
-    padding-top: 75%; /* Adjust aspect ratio for smaller screens if needed */
-  }
-}
-  .video-container .video-text {
-    font-size: 4vw; /* Adjust size for mobile screens */
-  }
 
 /* Welcome text overlay */
 .welcome {
@@ -181,39 +173,7 @@ video {
   clear: both;
 }
 
-/* Responsive Styles */
-@media screen and (max-width: 1024px) {
-  .product-card {
-    width: calc(50% - 20px); /* Two cards per row on laptops */
-  }
-}
 
-@media screen and (max-width: 768px) {
-  header h1 {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  header nav {
-    flex-direction: column;
-  }
-
-  .hero h1 {
-    font-size: 2rem;
-  }
-
-  .hero p {
-    font-size: 1rem;
-  }
-
-  .products {
-    flex-direction: column; /* Stack products vertically */
-  }
-
-  .product-card {
-    width: 100%; /* Full width for mobile */
-  }
-}
 
 
 body {
@@ -421,13 +381,6 @@ form button:hover {
   outline: none;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 600px) {
-  .login-container, .register-container {
-    width: 90%;
-    padding: 20px;
-  }
-}
 
 /* Hero Section */
 .hero {
@@ -824,4 +777,118 @@ footer p {
   font-size: 16px;
   color: #bdc3c7;
   margin-top: 10px;
+}
+
+/* Responsive Adjustments for Tablets */
+@media screen and (max-width: 768px) {
+  /* Profile Page */
+  .profile-page {
+    max-width: 90%;
+    padding: 15px;
+  }
+
+  /* Video Container */
+  .video-container {
+    width: 90%;
+    padding-top: 56.25%; /* Maintain aspect ratio */
+  }
+  .video-container .video-text {
+    font-size: 5vw; /* Adjust for smaller screens */
+  }
+  video {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  /* Product Section */
+  .product {
+    width: 100%;
+    margin: 10px auto; /* Full width for mobile */
+    padding: 10px;
+  }
+
+  /* Hero Section */
+  .hero h1 {
+    font-size: 1.8rem; /* Adjust font size for tablets */
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  .hero .btn {
+    font-size: 1rem;
+    padding: 8px 16px;
+  }
+
+  /* Form Styles */
+  form {
+    width: 90%;
+    padding: 20px;
+  }
+
+  /* Header */
+  header {
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+  }
+  header nav {
+    flex-direction: column;
+    gap: 15px;
+  }
+  header nav a {
+    font-size: 0.9rem;
+  }
+}
+
+/* Responsive Adjustments for Phones */
+@media screen and (max-width: 480px) {
+  /* Profile Page */
+  .profile-page {
+    margin: 10px;
+    padding: 10px;
+  }
+
+  /* Video Container */
+  .video-container {
+    width: 100%;
+    padding-top: 75%; /* Adjust aspect ratio for small screens */
+  }
+  .video-container .video-text {
+    font-size: 6vw; /* Further adjust text size */
+  }
+
+  /* Product Section */
+  .product {
+    margin: 5px auto;
+    padding: 8px;
+  }
+
+  /* Hero Section */
+  .hero h1 {
+    font-size: 1.5rem; /* Smaller font for phones */
+  }
+  .hero p {
+    font-size: 0.9rem;
+  }
+  .hero .btn {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
+
+  /* Form Styles */
+  form {
+    padding: 15px;
+  }
+
+  /* Header */
+  header {
+    padding: 10px;
+  }
+  header nav a {
+    font-size: 0.8rem;
+  }
+  header nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
 }
